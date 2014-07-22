@@ -94,8 +94,8 @@ package com.adobe.net
 		// name/value, URIqueryPartEscape is used instead.
 		public static const URIqueryEscape:String = URImustEscape + "#";
 		
-		// This is what each name/value pair must escape "&=" as well
-		// so they don't conflict with the "param=value&param2=value2"
+		// This is what each name/value pair must escape "&amp;=" as well
+		// so they don't conflict with the
 		// syntax.
 		public static const URIqueryPartEscape:String = URImustEscape + "#&=";
 		
@@ -817,7 +817,7 @@ package com.adobe.net
 		 * is used.  This URI class supports the common "param=value"
 		 * style query syntax via the get/setQueryValue() and
 		 * get/setQueryByMap() functions.  Those functions should be used
-		 * instead if the common syntax is being used.
+		 * instead if the common syntax is being used.</p>
 		 * 
 		 * <p>The URI RFC does not specify any particular
 		 * syntax for the query part of a URI.  It is intended to allow
@@ -825,7 +825,6 @@ package com.adobe.net
 		 * However, most systems have standardized on the typical CGI
 		 * format:</p>
 		 * 
-		 * <listing>http://site.com/script.php?param1=value1&param2=value2</listing>
 		 * 
 		 * <p>This class has specific support for this query syntax</p>
 		 * 
@@ -1049,7 +1048,7 @@ package com.adobe.net
 		/**
 		 * Get the value for the specified named in the query part.  This
 		 * assumes the query part of the URI is in the common
-		 * "name1=value1&name2=value2" syntax.  Do not call this function
+		 * Do not call this function
 		 * if you are using a custom query syntax.
 		 * 
 		 * @param name	name of the query value to get.
@@ -1196,7 +1195,7 @@ package com.adobe.net
 				
 				// Need to escape the name/value pair so that they
 				// don't conflict with the query syntax (specifically
-				// '=', '&', and <whitespace>).
+				// '=', '&amp;', and <whitespace>).
 				name = queryPartEscape(name);
 				value = queryPartEscape(value);
 				
@@ -1228,7 +1227,7 @@ package com.adobe.net
 		 * intended to be called on each individual "name" and "value"
 		 * in the query making sure that nothing in the name or value
 		 * strings contain characters that would conflict with the query
-		 * syntax (e.g. '=' and '&').
+		 * syntax (e.g. '=' and '&amp;').
 		 * 
 		 * @param unescaped		unescaped string that is to be escaped.
 		 * 
@@ -1468,7 +1467,7 @@ package com.adobe.net
 		 * Get the ".xyz" file extension from the filename in the URI.
 		 * For example, if we have the following URI:
 		 * 
-		 * <listing>http://something.com/path/to/my/page.html?form=yes&name=bob#anchor</listing>
+		 * <listing>http://something.com/path/to/my/page.html?form=yes&amp;name=bob#anchor</listing>
 		 * 
 		 * <p>This will return ".html".</p>
 		 * 
@@ -1810,7 +1809,7 @@ package com.adobe.net
 		 * and the provided URI.
 		 * 
 		 * @param uri the other URI from which to find a common parent
-		 * @para caseSensitive true if this operation should be done
+		 * @param caseSensitive true if this operation should be done
 		 * with case sensitive comparisons.
 		 * 
 		 * @return the parent URI if successful, null otherwise.
